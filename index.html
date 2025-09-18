@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Workout Posture Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .video-container {
+      width: 80%;
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .video-container video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .posture-feedback {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+    }
+    .posture-feedback h3 {
+      color: #4CAF50;
+    }
+    .posture-feedback p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    .start-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .start-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Smart Workout Posture Detection and Guidance</h1>
+  </div>
+
+  <div class="container">
+    <div class="video-container">
+      <video id="workoutVideo" controls>
+        <source src="workout-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="posture-feedback">
+      <h3>Posture Feedback</h3>
+      <p id="postureInfo">Please start the workout video and follow along. The system will analyze your posture during the workout.</p>
+    </div>
+
+    <div class="button-container">
+      <button class="start-button" onclick="startWorkout()">Start Workout</button>
+    </div>
+  </div>
+
+  <script>
+    // Mock function for posture analysis
+    function startWorkout() {
+      document.getElementById('postureInfo').innerHTML = 'Analyzing posture...';
+
+      // Simulate posture detection
+      setTimeout(function() {
+        const feedback = generatePostureFeedback();
+        document.getElementById('postureInfo').innerHTML = feedback;
+      }, 3000);
+    }
+
+    function generatePostureFeedback() {
+      // Placeholder logic for generating posture feedback
+      const randomFeedback = [
+        'Your posture looks great! Keep it up.',
+        'Try to straighten your back more.',
+        'Remember to keep your knees aligned with your toes.',
+        'Your arms should be at a 90-degree angle.',
+        'Ensure that your shoulders are not hunched.'
+      ];
+      return randomFeedback[Math.floor(Math.random() * randomFeedback.length)];
+    }
+  </script>
+
+</body>
+</html>
